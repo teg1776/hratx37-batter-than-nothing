@@ -55,9 +55,11 @@ You are encouraged to go beyond the initial MVP and add your own features and fl
 
 4. Create your own custom feature that incorporates an external API.
 
-5. Add user accounts
+5. Refactor to use [React Router](https://github.com/ReactTraining/react-router).
 
-6. Take it to the next level. Your donut shop is starting to take off, users are demanding new an exciting features! Can you distrupt the donut the industry?
+6. Add user accounts
+
+7. Take it to the next level. Your donut shop is starting to take off, users are demanding new an exciting features! Can you distrupt the donut the industry?
 
     - You could create a dashboard that shows the most popular donut toppings, most donuts sold, etc.
     - Add a voting feature to each donut
