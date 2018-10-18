@@ -1,5 +1,4 @@
 ---------------------------------
----------------------------------
 
 ## User Stories
 - [Home](#home)
@@ -7,7 +6,6 @@
 - [Customize (New Donut)](#customize-new-donut)
 - [Cart/Checking out](#cartchecking-out)
 
----------------------------------
 ---------------------------------
 
 # Home

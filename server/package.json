@@ -2,14 +2,24 @@
   "name": "batter-than-nothing",
   "version": "1.0.0",
   "description": "Full Stack Solo Sprint",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "keywords": [
     "sprint",
     "solo"
   ],
   "author": "Z",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "pg": "^7.5.0"
+  },
+  "devDependencies": {
+    "locus": "^2.0.1",
+    "morgan": "^1.9.1"
+  }
 }

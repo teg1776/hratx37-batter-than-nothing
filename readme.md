@@ -16,6 +16,22 @@ that contains multiple, connected tables in a SQL database
 and responds to AJAX requests from the React client
 ```
 
+## Getting Started
+
+This full stack application is separated in to two folders - client and server.
+
+- Client directory instructions:
+  - In terminal: `npm install`
+  - Separate terminal window: `npm build`
+  - Separate terminal window: `npm start`
+
+- Server directory instruction:
+  - Install knex cli: `npm install -g knex`
+  - Create a blank postgres database
+  - Configure your 'knexfile.js'
+  - In terminal, run each command: `npm install`, `knex migrate:latest`, `knex seed:run`
+  - Separate terminal window: `npm start`
+
 ## Technologies
 
 - Server
@@ -57,7 +73,12 @@ You are encouraged to go beyond the initial MVP and add your own features and fl
 | POST      | `api/toppings`  | insert new topping to toppings table |
 | POST      | `api/orders`    | insert new order to orders table, returns order number|
 
-## Getting Started
 
- - client: npm install, npm build, npm start
- - server: npm install, knex migrate:latest, knex seed:run, npm start
+## Resources
+
+You may use online resources.
+Here are some things you might want to reference:
+
+- [Look for migrations CLI](https://knexjs.org/#Installation-migrations)
+  - You will need to use the `knex migrate` commands to update the database
+- [Look for express.Router](https://expressjs.com/en/guide/routing.html)
