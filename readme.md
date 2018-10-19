@@ -1,4 +1,4 @@
-# Donut Dynasty
+# Donut Shop
 
 You'll be building a full stack application for a new company that creates and ships custom donuts.
 
