@@ -1,4 +1,4 @@
-exports.up = function (knex, Promise) {
+doexports.up = function (knex, Promise) {
     return knex.schema.createTable('donuts', function (table) {
         table.increments();
         table.string('name');

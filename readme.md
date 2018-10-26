@@ -4,9 +4,9 @@ You'll be building a full stack application for a new company that creates and s
 
 The application MVP involves three primary features:
 
- - Listing all donuts
- - Creating a new custom donut with custom toppings
- - Adding donuts to a shopping cart and placing an order
+- Listing all donuts
+- Creating a new custom donut with custom toppings
+- Adding donuts to a shopping cart and placing an order
 
 The main objective is to:
 
@@ -21,8 +21,9 @@ and responds to AJAX requests from the React client
 This full stack application is separated in to two folders - client and server.
 
 - Client directory instructions:
+
   - In terminal: `npm install`
-  - Separate terminal window: `npm build`
+  - Separate terminal window: `npm run script-build`
   - Separate terminal window: `npm start`
 
 - Server directory instruction:
@@ -61,20 +62,19 @@ You are encouraged to go beyond the initial MVP and add your own features and fl
 
 7. Take it to the next level. Your donut shop is starting to take off, users are demanding new an exciting features! Can you distrupt the donut the industry?
 
-    - You could create a dashboard that shows the most popular donut toppings, most donuts sold, etc.
-    - Add a voting feature to each donut
-    - Add searching and filtering of donuts
+   - You could create a dashboard that shows the most popular donut toppings, most donuts sold, etc.
+   - Add a voting feature to each donut
+   - Add searching and filtering of donuts
 
 ## Server Routes Overview
 
-| VERB          | PATH        | Description            |
-| --------- |-----------------| -----------------------|
-| GET       | `api/donuts`    | returns json of all donuts |
-| POST      | `api/donuts`    | insert new donut to donuts table |
-| GET       | `api/toppings`  | returns json of all toppings |
-| POST      | `api/toppings`  | insert new topping to toppings table |
-| POST      | `api/orders`    | insert new order to orders table, returns order number|
-
+| VERB | PATH           | Description                                            |
+| ---- | -------------- | ------------------------------------------------------ |
+| GET  | `api/donuts`   | returns json of all donuts                             |
+| POST | `api/donuts`   | insert new donut to donuts table                       |
+| GET  | `api/toppings` | returns json of all toppings                           |
+| POST | `api/toppings` | insert new topping to toppings table                   |
+| POST | `api/orders`   | insert new order to orders table, returns order number |
 
 ## Resources
 
