@@ -11,15 +11,11 @@ class App extends React.Component {
     this.state = {
       donuts: [],
       page: "home",
-      items: 0
+      items: 0,
+      ordered: []
     };
     this.handleRoute = this.handleRoute.bind(this);
-    // routes: {
-    //     home: true,
-    //     donuts: false,
-    //     customize: false,
-    //     order: false,
-    // }
+    this.updateOrderClick = this.updateOrderClick.bind(this);
   }
 
   componentDidMount() {
@@ -31,21 +27,24 @@ class App extends React.Component {
       });
   }
 
+  updateOrderClick(donut, count) {
+    this.setState({ items: this.state.items + JSON.parse(count) });
+    this.state.ordered.push([donut, count]);
+  }
   homeClick(el) {
-    // have the home page clicked by default
     el.click();
   }
 
   handleRoute(clickedRoute = "home") {
-    // Sets boolean value to help determine what component should show
-    // for (const route in this.state.routes) {
-    //     this.state.routes[route] = false;
-    // }
-    // this.state.routes[clickedRoute] = true;
     switch (clickedRoute) {
       case "donuts":
         this.setState({
-          page: <Donuts donuts={this.state.donuts} />
+          page: (
+            <Donuts
+              donuts={this.state.donuts}
+              updateCart={this.updateOrderClick}
+            />
+          )
         });
         break;
       case "customize":
