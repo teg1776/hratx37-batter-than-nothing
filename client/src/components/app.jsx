@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Donuts from "./donuts.jsx";
 import Home from "./home.jsx";
+import Customize from "./customize.jsx";
+import Cart from "./cart.jsx";
 
 class App extends React.Component {
   constructor() {
@@ -11,6 +13,7 @@ class App extends React.Component {
       page: "home",
       items: 0
     };
+    this.handleRoute = this.handleRoute.bind(this);
     // routes: {
     //     home: true,
     //     donuts: false,
@@ -23,6 +26,7 @@ class App extends React.Component {
     fetch("http://localhost:3001/api/donuts")
       .then(res => res.json())
       .then(results => {
+        console.log(results);
         this.setState({ donuts: results });
       });
   }
@@ -40,16 +44,25 @@ class App extends React.Component {
     // this.state.routes[clickedRoute] = true;
     switch (clickedRoute) {
       case "donuts":
-        this.setState({ page: <Donuts donuts={this.state.donuts} /> });
+        this.setState({
+          page: <Donuts donuts={this.state.donuts} />
+        });
         break;
       case "customize":
-        this.setState({ page: "customize component goes here" });
+        this.setState({ page: <Customize /> });
         break;
       case "cart":
-        this.setState({ page: "cart component goes here" });
+        this.setState({ page: <Cart /> });
         break;
       default:
-        this.setState({ page: <Home /> });
+        this.setState({
+          page: (
+            <Home
+              clicker={() => this.handleRoute("donuts")}
+              customClicker={() => this.handleRoute("customize")}
+            />
+          )
+        });
         break;
     }
   }
@@ -68,8 +81,8 @@ class App extends React.Component {
               Home
             </a>
             |{" "}
-            <a href="/donuts" onClick={() => this.handleRoute("donuts")}>
-              Donut
+            <a href="#" onClick={() => this.handleRoute("donuts")}>
+              Donuts
             </a>
             |{" "}
             <a href="#" onClick={() => this.handleRoute("customize")}>

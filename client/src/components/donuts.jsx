@@ -1,11 +1,12 @@
 import React from "react";
 
-// const Donuts = ({donuts}) => donuts.map(donut => <div>{donut.name}</div>)
-
-const Donuts = props => (
-  <div className="donuts_component">
-    <p>stuff goes here</p>
-  </div>
-);
+const Donuts = ({ donuts }) =>
+  donuts.map(donut => (
+    <div>
+      {donut.name}
+      <img src={donut.image} />
+      <button type="button">Order</button>
+    </div>
+  ));
 
 export default Donuts;

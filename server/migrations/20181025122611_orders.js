@@ -1,11 +1,11 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable("donut_types", function(table) {
+  return knex.schema.createTable("orders", function(table) {
     table.increments();
-    table.string("type");
+    table.string("customer_name");
     table.timestamps(true, true);
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable("donut_types");
+  return knex.schema.dropTable("orders");
 };

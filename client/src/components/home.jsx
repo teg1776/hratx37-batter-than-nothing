@@ -20,7 +20,11 @@ const Home = props => {
             />
           </div>
           <div>
-            <button className="custom_button" type="button">
+            <button
+              className="custom_button"
+              type="button"
+              onClick={() => props.customClicker()}
+            >
               Customize Your Own
             </button>
           </div>
@@ -33,7 +37,11 @@ const Home = props => {
             />
           </div>
           <div>
-            <button className="donuts_button" type="button">
+            <button
+              className="donuts_button"
+              type="button"
+              onClick={() => props.clicker()}
+            >
               Shop From Collection
             </button>
           </div>
