@@ -16,13 +16,13 @@ class App extends React.Component {
     };
     this.handleRoute = this.handleRoute.bind(this);
     this.updateOrderClick = this.updateOrderClick.bind(this);
+    this.updateCart = this.updateCart.bind(this);
   }
 
   componentDidMount() {
     fetch("http://localhost:3001/api/donuts")
       .then(res => res.json())
       .then(results => {
-        console.log(results);
         this.setState({ donuts: results });
       });
   }
@@ -30,6 +30,11 @@ class App extends React.Component {
   updateOrderClick(donut, count) {
     this.setState({ items: this.state.items + JSON.parse(count) });
     this.state.ordered.push([donut, count]);
+  }
+
+  updateCart(stuff) {
+    console.log(this.state.ordered, "hi");
+    this.state.ordered.push({ stuff });
   }
   homeClick(el) {
     el.click();
@@ -41,17 +46,18 @@ class App extends React.Component {
         this.setState({
           page: (
             <Donuts
+              cart={this.state.ordered}
               donuts={this.state.donuts}
-              updateCart={this.updateOrderClick}
+              updateCart={this.updateCart}
             />
           )
         });
         break;
       case "customize":
-        this.setState({ page: <Customize /> });
+        this.setState({ page: <Customize cart={this.state.ordered} /> });
         break;
       case "cart":
-        this.setState({ page: <Cart /> });
+        this.setState({ page: <Cart cart={this.state.ordered} /> });
         break;
       default:
         this.setState({
@@ -89,7 +95,7 @@ class App extends React.Component {
             </a>
             |{" "}
             <a href="#" onClick={() => this.handleRoute("cart")}>
-              Cart: {this.state.items}
+              Cart: {this.state.ordered.length}
             </a>
           </nav>
         </div>

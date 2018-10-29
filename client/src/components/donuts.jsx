@@ -7,11 +7,18 @@ class Donuts extends React.Component {
       count: 0
     };
     this.onChange = this.onChange.bind(this);
+    this.createDonut = this.createDonut.bind(this);
   }
 
   onChange(e) {
     this.setState({ count: e.target.value });
   }
+
+  createDonut(donut) {
+    donut.price = this.state.count * donut.price;
+    this.props.cart.push(donut);
+  }
+
   render() {
     return this.props.donuts.map((donut, i) => (
       <div key={i}>
@@ -25,7 +32,7 @@ class Donuts extends React.Component {
         <input type="text" onChange={this.onChange} />
         <input
           type="button"
-          onClick={() => this.props.updateCart(donut.name, this.state.count)}
+          onClick={() => this.createDonut(donut)}
           value="add to cart"
         />
       </div>
