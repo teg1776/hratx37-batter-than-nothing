@@ -20,7 +20,6 @@ class Customize extends React.Component {
         }
       }
     };
-    //this.addTopping = this.addTopping.bind(this);
     this.nameChanged = this.nameChanged.bind(this);
     this.baseChanged = this.baseChanged.bind(this);
     this.typeChanged = this.typeChanged.bind(this);
@@ -29,39 +28,6 @@ class Customize extends React.Component {
     this.topping3Changed = this.topping3Changed.bind(this);
     this.createDonut = this.createDonut.bind(this);
     this.quantityChanged = this.quantityChanged.bind(this);
-  }
-
-  componentDidMount() {
-    fetch("http://localhost:3001/api/toppings")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data, "toppings!");
-        let array = [];
-        for (const value of data) {
-          array.push(value);
-        }
-        this.setState({ toppings: array });
-      });
-    fetch("http://localhost:3001/api/bases")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data, "bases!");
-        let array2 = [];
-        for (const value of data) {
-          array2.push(value);
-        }
-        this.setState({ bases: array2 });
-      });
-    fetch("http://localhost:3001/api/types")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data, "types!");
-        let array3 = [];
-        for (const value of data) {
-          array3.push(value);
-        }
-        this.setState({ types: array3 });
-      });
   }
 
   nameChanged(e) {
@@ -126,13 +92,39 @@ class Customize extends React.Component {
     }
     return 0;
   }
-  // addTopping() {
-  //   if (this.state.toppingsCount.length < 3) {
-  //     this.setState({ toppingsCount: this.state.toppingsCount.concat[" "] });
-  //   } else {
-  //     alert("no mas");
-  //   }
-  // }
+
+  componentDidMount() {
+    fetch("http://localhost:3001/api/toppings")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data, "toppings!");
+        let array = [];
+        for (const value of data) {
+          array.push(value);
+        }
+        this.setState({ toppings: array });
+      });
+    fetch("http://localhost:3001/api/bases")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data, "bases!");
+        let array2 = [];
+        for (const value of data) {
+          array2.push(value);
+        }
+        this.setState({ bases: array2 });
+      });
+    fetch("http://localhost:3001/api/types")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data, "types!");
+        let array3 = [];
+        for (const value of data) {
+          array3.push(value);
+        }
+        this.setState({ types: array3 });
+      });
+  }
 
   createDonut(custom) {
     this.state.customDonut.price = this.state.total;
@@ -144,8 +136,7 @@ class Customize extends React.Component {
       <div>
         <h2 className="customize_header">Create a custom donut</h2>
         <p>Starting at $2.00</p>
-        Donut Name{" "}
-        <input type="text" placeholder="" onChange={this.nameChanged} />
+        Donut Name <input type="text" onChange={this.nameChanged} />
         <br />
         Donut Base{" "}
         <select onChange={this.baseChanged}>

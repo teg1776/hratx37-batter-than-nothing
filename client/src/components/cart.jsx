@@ -8,13 +8,22 @@ const Cart = props => {
       {props.cart.map((item, i) => (
         <div key={i}>
           <span>
-            {item.name} ${item.price}
+            {item.name} x2 ${item.price}
           </span>
         </div>
       ))}
       <br />
-      <button onClick={() => alert("Order placed!")}>Place Order</button>
+      <button
+        onClick={() =>
+          alert(
+            "Order Placed!...kind of..just call (737) 207-9062 to make sure"
+          )
+        }
+      >
+        Place Order
+      </button>
       <br />
+      {console.log(props.cart)}
       Total: $16
     </div>
   );
